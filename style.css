@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 #bg-video {
@@ -13,4 +14,11 @@ body {
     object-fit: cover;
 
     z-index: -1;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
 }
