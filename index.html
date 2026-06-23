@@ -1,20 +1,244 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SiliconGames</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#e9e9e9;
+    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+}
+
+/* Fake browser bar */
+.browser-bar{
+    background:black;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+}
+
+.browser-url{
+    width:95%;
+    max-width:1200px;
+    height:40px;
+
+    border:4px solid #222;
+    background:white;
+
+    display:flex;
+    align-items:center;
+
+    padding-left:15px;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* Main content */
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding-top:120px;
+}
+
+/* Logo */
+.logo{
+    font-size:72px;
+    font-weight:bold;
+    margin-bottom:40px;
+
+    user-select:none;
+}
+
+/* Search Bar */
+.search-container{
+    width:650px;
+    max-width:90%;
+    margin-bottom:40px;
+}
+
+.search-box{
+    width:100%;
+    height:70px;
+
+    border:4px solid black;
+    border-radius:15px;
+
+    font-size:28px;
+
+    padding-left:25px;
+    padding-right:60px;
+
+    outline:none;
+}
+
+.search-wrapper{
+    position:relative;
+}
+
+.search-icon{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+
+    font-size:32px;
+}
+
+/* Shortcut section */
+
+.shortcuts{
+    display:flex;
+    gap:35px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.shortcut{
+    text-decoration:none;
+    color:black;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    transition:0.2s ease;
+}
+
+.shortcut:hover{
+    transform:translateY(-5px);
+}
+
+.shortcut-circle{
+    width:110px;
+    height:110px;
+
+    border:4px solid black;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:45px;
+
+    background:white;
+
+    transition:0.2s ease;
+}
+
+.shortcut:hover .shortcut-circle{
+    background:#dcdcdc;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+.shortcut-label{
+    margin-top:10px;
+    font-size:24px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .logo{
+        font-size:50px;
+    }
+
+    .shortcut-circle{
+        width:90px;
+        height:90px;
+        font-size:35px;
+    }
+
+    .shortcut-label{
+        font-size:18px;
+    }
+
+    .search-box{
+        height:60px;
+        font-size:22px;
+    }
+}
+</style>
 
 </head>
-
 <body>
 
-<video autoplay muted loop playsinline id="bg-video">
-    <source src="/8mb.video-vGN-KZxIFg0Q.mp4" type="video/mp4">
-</video>
+<div class="browser-bar">
+    <div class="browser-url" id="urlDisplay">
+        Loading...
+    </div>
+</div>
 
-<h1>SiliconGames</h1>
+<div class="container">
+
+    <div class="logo">
+        SiliconGames
+    </div>
+
+    <div class="search-container">
+
+        <div class="search-wrapper">
+
+            <input
+                class="search-box"
+                placeholder="Search the Web">
+
+            <div class="search-icon">
+                🔍
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="shortcuts">
+
+        <a href="#" class="shortcut">
+            <div class="shortcut-circle">🎮</div>
+            <div class="shortcut-label">Games</div>
+        </a>
+
+        <a href="#" class="shortcut">
+            <div class="shortcut-circle">📱</div>
+            <div class="shortcut-label">Apps</div>
+        </a>
+
+        <a href="#" class="shortcut">
+            <div class="shortcut-circle">🔄</div>
+            <div class="shortcut-label">Updates</div>
+        </a>
+
+        <a href="#" class="shortcut">
+            <div class="shortcut-circle">⚙️</div>
+            <div class="shortcut-label">Settings</div>
+        </a>
+
+        <a href="#" class="shortcut">
+            <div class="shortcut-circle">❤️</div>
+            <div class="shortcut-label">Partners</div>
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("urlDisplay").textContent =
+window.location.href;
+</script>
 
 </body>
 </html>
